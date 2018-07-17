@@ -223,7 +223,7 @@ if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply(' **Yo
                message.reply("**Chat has been muted **:white_check_mark: ")
            });
              }
-if (message.content === "*unmutechannel") {
+if (message.content === "+unmutechannel") {
     if(!message.channel.guild) return message.reply(' **This command only for servers**');
 
 if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('**You do not have permissions**');
