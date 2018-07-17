@@ -1042,7 +1042,7 @@ client.on("message", message => {
               Nameless Bot
 ╚[❖════════════❖]╝
 ╔[❖════════════❖]╗
-             Prefix = '`prefix`'
+             Prefix = '*'
 ╚[❖════════════❖]╝
 ╔[❖════════════❖]╗
          :globe_with_meridians: General commands
