@@ -52,7 +52,7 @@ client.on('ready',() =>{
 
 setInterval(function(){
 
-client.user.setActivity(` ON ${client.guilds.size} Servers Serving ${client.users.size} - *help`,"*")
+client.user.setActivity(` ON ${client.guilds.size}  - *help`,"*")
 
 },10000)
 
@@ -1042,7 +1042,7 @@ client.on("message", message => {
               Nameless Bot
 ╚[❖════════════❖]╝
 ╔[❖════════════❖]╗
-             Prefix = ' * '
+             Prefix = '`prefix`'
 ╚[❖════════════❖]╝
 ╔[❖════════════❖]╗
          :globe_with_meridians: General commands
@@ -1294,34 +1294,34 @@ client.on('message', message => {
 client.on('guildMemberAdd', (member) => {
     member.addRole(member.guild.roles.find('name', 'not active'));
     });
-    client.on('message', message => {   
-      var prefix = "*"
-        if(!message.channel.guild) return;
-           if(message.content.startsWith(prefix + 'active')) {
-            let modlog = client.channels.find('name', 'log');
-           message.channel.sendMessage(`Press Check to get verified`).then(msg => {
+   // client.on('message', message => {   
+     // var prefix = "*"
+        //if(!message.channel.guild) return;
+          // if(message.content.startsWith(prefix + 'active')) {
+           // let modlog = client.channels.find('name', 'log');
+//message.channel.sendMessage(`Press Check to get verified`).then(msg => {
             
             
-            msg.react('✅')
-           .then(() => msg.react('✅'))
+           // msg.react('✅')
+           //.then(() => msg.react('✅'))
          
          
     
-           let activeFilter = (reaction, user) => reaction.emoji.name === '✅' && user.id === message.author.id;
+          // let activeFilter = (reaction, user) => reaction.emoji.name === '✅' && user.id === message.author.id;
          
-           let active = msg.createReactionCollector(activeFilter, { time: 15000 });
+          // let active = msg.createReactionCollector(activeFilter, { time: 15000 });
          
                                                             
-                                   active.on("collect", r => {
-                                       message.member.addRole(message.guild.roles.find("name", "active"));
-                                       message.member.removeRole(message.guild.roles.find("name", "not active"));
-                                       msg.delete();
-                                       message.channel.send(`**You have bee verified.**`).then(m => m.delete(1000));
+                                  // active.on("collect", r => {
+                                     //  message.member.addRole(message.guild.roles.find("name", "active"));
+                                    //   message.member.removeRole(message.guild.roles.find("name", "not active"));
+                                      // msg.delete();
+                                     //  message.channel.send(`**You have bee verified.**`).then(m => m.delete(1000));
          
-                                       })
-                                       })
-                                       }
-                                       }); 
+                                     //  })
+                                     //  })
+                                     //  }
+                                     //  }); 
 //Info
 client.on('message', message => {
     if (message.content === "*Info") {
@@ -1341,7 +1341,7 @@ message.channel.sendEmbed(embed);
 }
 });
 //Auto Role
-client.on('guildMemberAdd', (member) => {
-    member.addRole(member.guild.roles.find('name', 'Member'));
-    });
+//client.on('guildMemberAdd', (member) => {
+   // member.addRole(member.guild.roles.find('name', 'Member'));
+    //});
 client.login(process.env.BOT_TOKEN);
