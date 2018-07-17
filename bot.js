@@ -48,7 +48,7 @@ client.user.setActivity(` ON ${client.guilds.size} Servers - +help`,"*")
 
 //warn 
 client.on('message', msg => { 
-    if (msg.content.startsWith('*warn')) {
+    if (msg.content.startsWith('+warn')) {
       if(!msg.member.hasPermission("MUTE_MEMBERS")) return;
        let args = msg.content.split(" ").slice(1);
       if (!msg.mentions.members.first()) return msg.reply('**Mention a user/player ```Example: *warn @unknown#1547 spamming```**')
@@ -68,7 +68,7 @@ client.on("message", function(message) {
     let toBan = message.mentions.users.first();
     let toReason = message.content.split(" ").slice(2).join(" ");
     let toEmbed = new Discord.RichEmbed()
-    var prefix = "*"
+    var prefix = "+"
    if(message.content.startsWith(prefix + "ban")) {
        if(!message.member.hasPermission("BAN_MEMBERS")) return message.reply("**You dont have enough permissions!**");
        if(!toBan) return message.reply("** Mention a user! ```Example: *ban @unknown#1547 spamming```**");
@@ -97,7 +97,7 @@ client.on('message',function(message) {
     let toKick = message.mentions.users.first();
     let toReason = message.content.split(" ").slice(2).join(" ");
     let toEmbed = new Discord.RichEmbed()
-    var prefix = "*"
+    var prefix = "+"
    if(message.content.startsWith(prefix + 'kick')) {
        if(!message.member.hasPermission("KICK_MEMBERS")) return message.reply('**You dont have enough permissions!**');
        if(!toReason) return message.reply("**Mention a user!  ```Example: *kick @unknown#1547 spamming```**")
@@ -118,7 +118,7 @@ client.on('message',function(message) {
 
 //clear
 client.on('message', msg => {
-  var prefix ="*"
+  var prefix ="+"
   if (msg.author.bot) return;
   if (!msg.content.startsWith(prefix)) return;
   let command = msg.content.split(" ")[0];
@@ -147,7 +147,7 @@ client.on("message", message => {
   
   let command = message.content.split(" ")[0];
   
-  if (command === "*mute") {
+  if (command === "+mute") {
         if (!message.member.hasPermission('MUTE_MEMBERS')) return message.reply("** You dont have permissions **").catch(console.error);
   let user = message.mentions.users.first();
   let modlog = client.channels.find('name', 'mute-log');
@@ -181,7 +181,7 @@ return message.reply("**Done The member got muted .. :white_check_mark:**").catc
   
   let command = message.content.split(" ")[0];
   
-  if (command === "*unmute") {
+  if (command === "+unmute") {
         if (!message.member.hasPermission('MUTE_MEMBERS')) return message.reply("** You dont have permissions **").catch(console.error);
   let user = message.mentions.users.first();
   let modlog = client.channels.find('name', 'mute-log');
@@ -212,7 +212,7 @@ return message.reply("**Done Unmuted .. :white_check_mark:**").catch(console.err
 //mutechannel and unmutechannel
 client.on('message', message => {
 
-    if (message.content === "*mutechannel") {
+    if (message.content === "+mutechannel") {
                         if(!message.channel.guild) return message.reply(' **This command only for servers**');
 
 if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply(' **You do not have permissions**');
@@ -238,7 +238,7 @@ if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('**You
 });
 //mute voice
 client.on('message', message => {
-  var prefix = "*"
+  var prefix = "+"
       if(message.content.startsWith(prefix + 'mutevoice')) {
         if(!message.member.hasPermission("MUTE_MEMBERS")) return message.channel.sendMessage("**You do not have permission to give mute voice**:x: ").then(m => m.delete(5000));
         if(!message.guild.member(client.user).hasPermission("MUTE_MEMBERS")) return message.reply("**I Don't Have `MUTE_MEMBERS` Permission**").then(msg => msg.delete(6000))
@@ -258,7 +258,7 @@ client.on('message', message => {
   });
 //unmute voice
   client.on('message', message => {
-    var prefix = "*"
+    var prefix = "+"
     if(message.content.startsWith(prefix + 'unmutevoice')) {
       if(!message.member.hasPermission("MUTE_MEMBERS")) return message.channel.sendMessage("**You do not have permission to give mute voice**:x: ").then(m => m.delete(5000));
       if(!message.guild.member(client.user).hasPermission("MUTE_MEMBERS")) return message.reply("**I Don't Have `MUTE_MEMBERS` Permission**").then(msg => msg.delete(6000))
@@ -277,7 +277,7 @@ client.on('message', message => {
   }
 });
 client.on('message', message => {
-	const prefix = '*'
+	const prefix = '+'
 if(!message.channel.guild) return;
 if(message.content.startsWith(prefix + 'move')) {
  if (message.member.hasPermission("MOVE_MEMBERS")) {
@@ -309,7 +309,7 @@ message.react("❌")
  }}});
 //report
 client.on('message', msg => { 
-if (msg.content.startsWith(`*report`)) {
+if (msg.content.startsWith(`+report`)) {
 
    let args = msg.content.split(" ").slice(1);
 
@@ -330,7 +330,7 @@ if (msg.content.startsWith(`*report`)) {
 });
 //sug
 client.on('message', msg => { 
-if (msg.content.startsWith(`*sug`)) {
+if (msg.content.startsWith(`+sug`)) {
 
    let args = msg.content.split(" ").slice(1);
 
@@ -356,7 +356,7 @@ client.on('guildCreate', guild => {
   });
 
  client.on('message' , message => {
-   var prefix ="*"
+   var prefix ="+"
      if (message.content === prefix + "botservers?") {
 
 if(!message.channel.guild) return;
@@ -370,7 +370,7 @@ if(!message.channel.guild) return;
 });
 //bot owner 
 client.on('message', message => {
-  var prefix = "*"
+  var prefix = "+"
   if (!message.content.startsWith(prefix)) return;
   const verifed = ["236192758765715456"]; 
 if (message.content.startsWith(prefix + 'owner')) {
@@ -422,14 +422,14 @@ client.on('guildMemberAdd', member => {
 
 //help
 client.on('message', message => {
-    if (message.content === "*help") {
+    if (message.content === "+help") {
 let embed = new Discord.RichEmbed()
 .setThumbnail(message.author.avatarURL)
 .setTitle('**:sparkle: ─══════ {✯Choose✯} ══════─ :sparkle:**')
-.addField('     **❧ *help-1 ➺ Setup the bot :wrench: ** ','**════════════**') 
-.addField('     **❧ *help-2 ➺ General commands :fire:**','**════════════**') 
-.addField('     **❧ *help-3 ➺ Music Commands __(Coming Soon)__ :musical_note: **' ,'**════════════**') 
-.addField('     **❧ *help-4 ➺ Management orders__(Staff Commands)__ :no_entry:**' ,'**════════════**') 
+.addField('     **❧ +help-1 ➺ Setup the bot :wrench: ** ','**════════════**') 
+.addField('     **❧ +help-2 ➺ General commands :fire:**','**════════════**') 
+.addField('     **❧ +help-3 ➺ Music Commands __(Coming Soon)__ :musical_note: **' ,'**════════════**') 
+.addField('     **❧ +help-4 ➺ Management orders__(Staff Commands)__ :no_entry:**' ,'**════════════**') 
 .addField('     **❧ :pushpin: Important ➺ give the bot needed __permissions__ So it can work without any problems :no_entry:**' ,'**════════════**') 
 .addField("**:red_circle:  Nameless Support Discord :tools:   **","**-https://discord.gg/atk3A2C**") 
 .addField("**:pushpin:  Don't forget to vote for Nameless Bot :heartbeat:**","**-https://discordbots.org/bot/465993722342014986/vote**")
@@ -440,17 +440,17 @@ message.channel.sendEmbed(embed);
 
 //help-1
 client.on('message', message => {
-if (message.content === "*help-1") { 
+if (message.content === "+help-1") { 
   if (!message.member.hasPermission('ADMINISTRATOR')) return message.reply("**This is for management only (Who have __ADMINISTRATOR__ ON can setup the bot)**");
 let embed = new Discord.RichEmbed()
 .setThumbnail(message.author.avatarURL)
 .setTitle('**:sparkle: ─══════ {✯Choose✯} ══════─ :sparkle:**')
-.addField('     **❧ *help-setup-warn ➺ Setup warn :warning: ** ','**════════════**')  //Done
-.addField('     **❧ *help-setup-report ➺ Setup report 📝** ','**════════════**')  //Done
-.addField('     **❧ *help-setup-sug  ➺ Setup suggestions 📋** ','**════════════**')  //Done
-.addField('     **❧ *help-setup-welcome ➺ Setup welcome message 👋** ','**════════════**') //Done
-.addField('     **❧ *help-setup-goodbye ➺ Setup goodbye message  😢** ','**════════════**') //Done
-.addField('     **❧ *help-setup-AutoRole ➺ Setup Auto Role  :asterisk:** ','**════════════**') //Done
+.addField('     **❧ +help-setup-warn ➺ Setup warn :warning: ** ','**════════════**')  //Done
+.addField('     **❧ +help-setup-report ➺ Setup report 📝** ','**════════════**')  //Done
+.addField('     **❧ +help-setup-sug  ➺ Setup suggestions 📋** ','**════════════**')  //Done
+.addField('     **❧ +help-setup-welcome ➺ Setup welcome message 👋** ','**════════════**') //Done
+.addField('     **❧ +help-setup-goodbye ➺ Setup goodbye message  😢** ','**════════════**') //Done
+//.addField('     **❧ +help-setup-AutoRole ➺ Setup Auto Role  :asterisk:** ','**════════════**') //Done
 .addField("**:red_circle:  Nameless Support Discord :tools:   **","**-https://discord.gg/atk3A2C**") 
 .addField("**:pushpin:  Don't forget to vote for Nameless Bot :heartbeat:**","**-https://discordbots.org/bot/465993722342014986/vote**")
 .setColor('#7d2dbe')
@@ -460,7 +460,7 @@ message.channel.sendEmbed(embed);
 
 //help warn
 client.on('message', message => {
-if (message.content === "*help-setup-warn") { 
+if (message.content === "+help-setup-warn") { 
 let embed = new Discord.RichEmbed()
 .setThumbnail(message.author.avatarURL)
 .setTitle('**:sparkle: ─══════  {✯Setup warn :warning:✯} ══════─ :sparkle: **')
@@ -475,7 +475,7 @@ message.channel.sendEmbed(embed);
 });
 //help report
 client.on('message', message => {
-if (message.content === "*help-setup-report") { 
+if (message.content === "+help-setup-report") { 
 let embed = new Discord.RichEmbed()
 .setThumbnail(message.author.avatarURL)
 .setTitle('**:sparkle: ─══════  {✯Setup report 📝✯} ══════─ :sparkle: **')
@@ -490,7 +490,7 @@ message.channel.sendEmbed(embed);
 });
 //help suggestions
 client.on('message', message => {
-if (message.content === "*help-setup-sug") { 
+if (message.content === "+help-setup-sug") { 
 let embed = new Discord.RichEmbed()
 .setThumbnail(message.author.avatarURL)
 .setTitle('**:sparkle: ─══════  {✯Setup suggestions 📋✯} ══════─ :sparkle: **')
@@ -505,7 +505,7 @@ message.channel.sendEmbed(embed);
 });
 //help welcome
 client.on('message', message => {
-if (message.content === "*help-setup-welcome") { 
+if (message.content === "+help-setup-welcome") { 
 let embed = new Discord.RichEmbed()
 .setThumbnail(message.author.avatarURL)
 .setTitle('**:sparkle: ─══════  {✯Setup welcome message 👋✯} ══════─ :sparkle: **')
@@ -520,7 +520,7 @@ message.channel.sendEmbed(embed);
 });
 //help goodbye
 client.on('message', message => {
-if (message.content === "*help-setup-goodbye") { 
+if (message.content === "+help-setup-goodbye") { 
 let embed = new Discord.RichEmbed()
 .setThumbnail(message.author.avatarURL)
 .setTitle('**:sparkle: ─══════  {✯Setup goodbye message  👋✯} ══════─ :sparkle: **')
@@ -534,22 +534,22 @@ message.channel.sendEmbed(embed);
 }
 });
 //help Auto Role
-client.on('message', message => {
-if (message.content === "*help-setup-AutoRole") { 
-let embed = new Discord.RichEmbed()
-.setThumbnail(message.author.avatarURL)
-.setTitle('**:sparkle: ─══════  {✯Setup Auto Role :asterisk: ✯} ══════─ :sparkle: **')
-.addField('** How to setup Auto Role?  **',"**Just Make new Role and name it ```Member```**") 
-.addField('** :pushpin: Important:  **',"**We can only Auto Role `Member` role for now**") 
-.addField("**:red_circle:  Nameless Support Discord :tools:   **","**-https://discord.gg/atk3A2C**") 
-.addField("**:pushpin:  Don't forget to vote for Nameless Bot :heartbeat:**","**-https://discordbots.org/bot/465993722342014986/vote**")
-.setColor('#7d2dbe')
-message.channel.sendEmbed(embed);
-}
-});
+//client.on('message', message => {
+//if (message.content === "+help-setup-AutoRole") { 
+//let embed = new Discord.RichEmbed()
+//.setThumbnail(message.author.avatarURL)
+//.setTitle('**:sparkle: ─══════  {✯Setup Auto Role :asterisk: ✯} ══════─ :sparkle: **')
+//.addField('** How to setup Auto Role?  **',"**Just Make new Role and name it ```Member```**") 
+//.addField('** :pushpin: Important:  **',"**We can only Auto Role `Member` role for now**") 
+//.addField("**:red_circle:  Nameless Support Discord :tools:   **","**-https://discord.gg/atk3A2C**") 
+//.addField("**:pushpin:  Don't forget to vote for Nameless Bot :heartbeat:**","**-https://discordbots.org/bot/465993722342014986/vote**")
+//.setColor('#7d2dbe')
+//message.channel.sendEmbed(embed);
+//}
+//});
 //Staff commands 
 client.on("message", message => {
-  var prefix ="*"
+  var prefix ="+"
     if (message.content === (prefix + "help-4")) {
      const embed = new Discord.RichEmbed() 
          .setColor("#580e6b")
@@ -560,23 +560,23 @@ client.on("message", message => {
               Nameless Bot
 ╚[❖════════════❖]╝
 ╔[❖════════════❖]╗
-              Prefix = ' * '
+              Prefix = ' + '
 ╚[❖════════════❖]╝
 ╔[❖════════════❖]╗
   :radioactive:Management orders:no_entry:
 ╚[❖════════════❖]╝
 __(Staff Commands)__
-❖ *clear :octagonal_sign:➾ Clear Chat
-❖ *kick  :outbox_tray: ➾ Kick members
-❖ *ban :no_entry: ➾ Ban members
-❖ *warn  :warning: ➾ Warn members
-❖ *mute  :neutral_face: ➾ Mute members
-❖ *unmute  :smiley: ➾ Unmute members
-❖ *mutechannel  :notepad_spiral: ➾ Mute channels
-❖ *unmutechannel  :pencil: ➾ Unmute channels
-❖ *mutevoice  :no_mouth: ➾ Mute members (Voice)
-❖ *unmutevoice  :smile: ➾ Unmute members (Voice)
-❖ *move  :airplane: ➾ Move members to your Voice channel (Voice)
+❖ +clear :octagonal_sign:➾ Clear Chat
+❖ +kick  :outbox_tray: ➾ Kick members
+❖ +ban :no_entry: ➾ Ban members
+❖ +warn  :warning: ➾ Warn members
+❖ +mute  :neutral_face: ➾ Mute members
+❖ +unmute  :smiley: ➾ Unmute members
+❖ +mutechannel  :notepad_spiral: ➾ Mute channels
+❖ +unmutechannel  :pencil: ➾ Unmute channels
+❖ +mutevoice  :no_mouth: ➾ Mute members (Voice)
+❖ +unmutevoice  :smile: ➾ Unmute members (Voice)
+❖ +move  :airplane: ➾ Move members to your Voice channel (Voice)
 ════════════
 :red_circle: Nameless Support Discord :tools: ➾ https://discord.gg/atk3A2C
 :pushpin:  Don't forget to vote for Nameless Bot :heartbeat: ➾ https://discordbots.org/bot/465993722342014986/vote
@@ -588,7 +588,7 @@ __(Staff Commands)__
    }); 
 //Music commands 
 client.on("message", message => {
-  var prefix ="*"
+  var prefix ="+"
     if (message.content === (prefix + "help-3")) {
      const embed = new Discord.RichEmbed() 
          .setColor("#580e6b")
@@ -599,17 +599,17 @@ client.on("message", message => {
               Nameless Bot
 ╚[❖════════════❖]╝
 ╔[❖════════════❖]╗
-              Prefix = ' * '
+              Prefix = ' + '
 ╚[❖════════════❖]╝
 ╔[❖════════════❖]╗
     :musical_note: Music Commands :musical_note:
 ╚[❖════════════❖]╝
 __(Coming Soon)__
-❖ *play :musical_note:➾ Plays stated youtube URL
-❖ *stop  :musical_keyboard: ➾ Stops music playing
-❖ *pause :musical_score: ➾ Pauses current music
-❖ *resume  :recycle: ➾ Resumes current song
-❖ *skip  :left_right_arrow: ➾ Skip the song
+❖ +play :musical_note:➾ Plays stated youtube URL
+❖ +stop  :musical_keyboard: ➾ Stops music playing
+❖ +pause :musical_score: ➾ Pauses current music
+❖ +resume  :recycle: ➾ Resumes current song
+❖ +skip  :left_right_arrow: ➾ Skip the song
 ════════════
 :red_circle: Nameless Support Discord :tools: ➾ https://discord.gg/atk3A2C
 :pushpin:  Don't forget to vote for Nameless Bot :heartbeat: ➾ https://discordbots.org/bot/465993722342014986/vote
@@ -622,7 +622,7 @@ __(Coming Soon)__
 //achieve
 const sql = require("sqlite");
 client.on("message", async message => {
-  var prefix = "*"
+  var prefix = "+"
     if (message.content.startsWith(prefix + "achieve")) {
          var ids = [
             "20",
@@ -650,7 +650,7 @@ message.channel.send(image)
     }
 });
 client.on('message', message => {
-  var prefix = "*"
+  var prefix = "+"
     if (message.author.id === client.user.id) return;
             if (message.content.startsWith(prefix + "ping")) {
         message.channel.sendMessage('**:ping_pong: Pong! In **`' + `${client.ping}` + ' ms`');
@@ -658,7 +658,7 @@ client.on('message', message => {
 });
 //avatar 
 client.on('message', message => {
-    if (message.content.startsWith("*avatar")) {
+    if (message.content.startsWith("+avatar")) {
         var mentionned = message.mentions.users.first();
     var x5bzm;
       if(mentionned){
@@ -675,7 +675,7 @@ client.on('message', message => {
 });
 //server
 client.on('message', function(msg) {
-         var prefix = "*"
+         var prefix = "+"
     if(msg.content.startsWith (prefix  + 'server')) {
       let embed = new Discord.RichEmbed()
       .setColor('RANDOM')
@@ -696,7 +696,7 @@ client.on('message', function(msg) {
 
 //id
 client.on('message', message => {
-    var prefix = "*"
+    var prefix = "+"
 var args = message.content.split(" ").slice(1);    
 if(message.content.startsWith(prefix + 'id')) {
 var year = message.author.createdAt.getFullYear()
@@ -749,7 +749,7 @@ message.channel.send({embed});
 });
 //member
 client.on('message', message => {
-    if(message.content == '*member') {
+    if(message.content == '+member') {
     const embed = new Discord.RichEmbed()
     .setDescription(`**Members info
 :green_heart: online:   ${message.guild.members.filter(m=>m.presence.status == 'online').size}
@@ -763,7 +763,7 @@ client.on('message', message => {
   });
 //say
 client.on('message', message => {
-  var prefix = "*"
+  var prefix = "+"
     if (message.author.bot) return;
     if (!message.content.startsWith(prefix)) return;
   
@@ -779,7 +779,7 @@ client.on('message', message => {
 });
 //bot
 client.on('message', message => {
-  if(message.content === "*bot") {
+  if(message.content === "+bot") {
       const embed = new Discord.RichEmbed()
       .setColor("#00FFFF")
       .setDescription(`**On** **__${client.guilds.size}__ Servers 🌐**
@@ -790,7 +790,7 @@ client.on('message', message => {
 });
 //MC skins
 client.on("message", message => {
-    var prefix = "*"
+    var prefix = "+"
     if (!message.content.startsWith(prefix)) return;
       let command = message.content.split(" ")[0];
       command = command.slice(prefix.length);
@@ -803,7 +803,7 @@ client.on("message", message => {
     });
 //Date and time
 client.on('message' , async (message) => {
-    var prefix = "*"
+    var prefix = "+"
       if (message.content.startsWith(prefix + 'day')) {
   var today = new Date()
   let Day = today.toString().split(" ")[0].concat("day");
@@ -837,7 +837,7 @@ const mapping = {
 
 
 client.on('message' , async (message) => {
-  var prefix = "*"
+  var prefix = "+"
        if(message.content.startsWith(prefix + "emoji")) {
           let args = message.content.split(" ").slice(1);
   if (args.length < 1) {
@@ -854,7 +854,7 @@ message.channel.send(
 });
 //flip
 client.on('message' , async (message) => {
-  var prefix = "*"
+  var prefix = "+"
  if (message.content.startsWith(prefix + 'flip')) {
   let args = message.content.split(" ").slice(1);
 if(!args[0]) return message.channel.send('Correct usage: **ks!reverse (text to reverse)**');
@@ -881,7 +881,7 @@ if(!args[0]) return message.channel.send('Correct usage: **ks!reverse (text to r
 });
 //Link
 client.on('message', message => {
-    if (message.content.startsWith("*Link")) {
+    if (message.content.startsWith("+Link")) {
 
   message.channel.createInvite({
         thing: true,
@@ -900,7 +900,7 @@ Number of uses of the link : 100**`)
 });
 //invite my bot to your discord server
              client.on('message', message => {
-				    var prefix = "*"
+				    var prefix = "+"
                 if(message.content === prefix + "inv") {
                     let embed = new Discord.RichEmbed ()
                     embed.setTitle("** :arrow_right: Invite Nameless Bot to your Discord Server!**")
@@ -910,7 +910,7 @@ Number of uses of the link : 100**`)
 });
 //uptime 
 client.on('message', message => {
-    var prefix = "*"
+    var prefix = "+"
 if (message.content.startsWith(prefix + "uptime")) {
    let uptime = client.uptime;
 
@@ -958,7 +958,7 @@ const math = require('math-expression-evaluator');
 const stripIndents = require('common-tags').stripIndents;
 
 client.on('message', msg => {
-	var prefix = "*"
+	var prefix = "+"
  if (msg.content.startsWith(prefix + 'calculate')) {
     let args = msg.content.split(" ").slice(1);
         const question = args.join(' ');
@@ -981,7 +981,7 @@ client.on('message', msg => {
 //tag
 const figlet = require('figlet');
 client.on('message', message => {
-  var prefix = "*"
+  var prefix = "+"
 if (message.content.startsWith(prefix + 'tag')) {
     let args = message.content.split(" ").slice(1);
 if(!args[0]) return message.reply('**Please write the text you want**');  
@@ -995,7 +995,7 @@ if(!args[0]) return message.reply('**Please write the text you want**');
 client.on("message", message => {    
           if(!message.channel.guild) return;
    if(message.author.bot) return;
-      if(message.content === "*ser-av"){ 
+      if(message.content === "+ser-av"){ 
           const embed = new Discord.RichEmbed()
   
       .setTitle(`** __${message.guild.name}__ Server Avatar: :arrow_down: **`)
@@ -1008,7 +1008,7 @@ client.on("message", message => {
   });
 //Join Support Server
              client.on('message', message => {
-				    var prefix = "*"
+				    var prefix = "+"
                 if(message.content === prefix + "Support") {
                     let embed = new Discord.RichEmbed ()
                     embed.setTitle("** :arrow_right: Join Nameless Support Discord!**")
@@ -1019,7 +1019,7 @@ client.on("message", message => {
 
 //help commands
 client.on("message", message => {
-  var prefix ="*"
+  var prefix ="+"
     if (message.content === (prefix + "help-2")) {
      const embed = new Discord.RichEmbed() 
          .setColor("#580e6b")
@@ -1030,37 +1030,37 @@ client.on("message", message => {
               Nameless Bot
 ╚[❖════════════❖]╝
 ╔[❖════════════❖]╗
-             Prefix = '*'
+             Prefix = '+'
 ╚[❖════════════❖]╝
 ╔[❖════════════❖]╗
          :globe_with_meridians: General commands
 ╚[❖════════════❖]╝
-❖ *ping :stopwatch:➾ Check your connection speed
-❖ *avatar  :camping: ➾ Shows your avatar or other players/members avatar
-❖ *ser-av  :tent:  ➾ Shows your server avatar
-❖ *bot :floppy_disk: ➾ Shows how many server and members there
-❖ *Info :notebook_with_decorative_cover: ➾ Info about the bot
-❖ *server  :recycle: ➾ For server information
-❖ *id  :id: ➾ Shows your ID
-❖ *roles  :eight_pointed_black_star:  ➾ Shows your server roles
-❖ *member :hearts: ➾ Shows everyone Status
-❖ *emoji  :gem: ➾ Write your word in emoji
-❖ *flip  :arrows_clockwise: ➾ Flip your word
-❖ *calculate :thinking: ➾ calculate
-❖ *tag :pen_ballpoint: ➾ put your name or any other name
-❖ *uptime  :timer: ➾ Bot uptime
-❖ *day :cloud: ➾ Shows the date and the time
-❖ *hack  :satellite:  ➾ Fake hack 
-❖ *sh  🔎  ➾ Search for members in your discord server
-❖ *Link  :link: ➾ Give you your Discord invite link 
-❖ *mcserver-stats  :bookmark_tabs: ➾ Check any Minecraft server stats 
-❖ *MCskin :heart_eyes: ➾ Shows your Minecraft skin
-❖ *achieve :clap: ➾ Achieve something in Minecraft
-❖ *sug :notepad_spiral: ➾ Your suggestion
-❖ *report :pencil: ➾ Report members
-❖ *Staff 💙  ➾ Shows Nameless Bot Staff Team
-❖ *inv :red_circle: ➾ Invite Nameless bot to your discord server
-❖ *Support :wrench:  ➾ Join Nameless Support Discord
+❖ +ping :stopwatch:➾ Check your connection speed
+❖ +avatar  :camping: ➾ Shows your avatar or other players/members avatar
+❖ +ser-av  :tent:  ➾ Shows your server avatar
+❖ +bot :floppy_disk: ➾ Shows how many server and members there
+❖ +Info :notebook_with_decorative_cover: ➾ Info about the bot
+❖ +server  :recycle: ➾ For server information
+❖ +id  :id: ➾ Shows your ID
+❖ +roles  :eight_pointed_black_star:  ➾ Shows your server roles
+❖ +member :hearts: ➾ Shows everyone Status
+❖ +emoji  :gem: ➾ Write your word in emoji
+❖ +flip  :arrows_clockwise: ➾ Flip your word
+❖ +calculate :thinking: ➾ calculate
+❖ +tag :pen_ballpoint: ➾ put your name or any other name
+❖ +uptime  :timer: ➾ Bot uptime
+❖ +day :cloud: ➾ Shows the date and the time
+❖ +hack  :satellite:  ➾ Fake hack 
+❖ +sh  🔎  ➾ Search for members in your discord server
+❖ +Link  :link: ➾ Give you your Discord invite link 
+❖ +mcserver-stats  :bookmark_tabs: ➾ Check any Minecraft server stats 
+❖ +MCskin :heart_eyes: ➾ Shows your Minecraft skin
+❖ +achieve :clap: ➾ Achieve something in Minecraft
+❖ +sug :notepad_spiral: ➾ Your suggestion
+❖ +report :pencil: ➾ Report members
+❖ +Staff 💙  ➾ Shows Nameless Bot Staff Team
+❖ +inv :red_circle: ➾ Invite Nameless bot to your discord server
+❖ +Support :wrench:  ➾ Join Nameless Support Discord
 ════════════
 :red_circle: Nameless Support Discord :tools: ➾ https://discord.gg/atk3A2C
 :pushpin:  Don't forget to vote for Nameless Bot :heartbeat: ➾ https://discordbots.org/bot/465993722342014986/vote
@@ -1157,7 +1157,7 @@ delete warn[message.author.id];
 });
 //fake hack
 client.on('message', message => {
-  var prefix = "*"
+  var prefix = "+"
      if(message.content.startsWith(prefix + "hack")) {
  let args = message.content.split(" ").slice(1);
 
@@ -1189,7 +1189,7 @@ client.on('message', message => {
 });
 //Roles
 client.on('message', message => {
-    if (message.content === '*roles') {
+    if (message.content === '+roles') {
         var roles = message.guild.roles.map(roles => `${roles.name}, `).join(' ')
         const embed = new Discord.RichEmbed()
         .setColor('RANDOM')
@@ -1200,7 +1200,7 @@ client.on('message', message => {
 
 ///search for member
 client.on('message', message => {
-  var prefix = "*"
+  var prefix = "+"
    let args = message.content.split(" ").slice(1);
   if (message.content.startsWith(prefix + "sh")) {
 let Embed = new Discord.RichEmbed()
@@ -1231,7 +1231,7 @@ let Embed = new Discord.RichEmbed()
 }); 
 //Staff
 client.on("message", message => {
-  var prefix ="*"
+  var prefix ="+"
     if (message.content === (prefix + "Staff")) {
      const embed = new Discord.RichEmbed() 
          .setColor("#580e6b")
@@ -1265,7 +1265,7 @@ Nameless Discord Moderator:
 //MC server Stats 
 client.on('message', message => {
   const port = '25565'
-  if(message.content.startsWith('*mcserver-stats')) {
+  if(message.content.startsWith('+mcserver-stats')) {
  const args = message.content.split(" ").slice(1).join(" ")
     if (!args) return message.channel.send("** Type the server IP ```Example: *mcserver-stats mc.hypixel.net``` **");
         let embed = new Discord.RichEmbed()
@@ -1312,7 +1312,7 @@ client.on('message', message => {
                                      //  }); 
 //Info
 client.on('message', message => {
-    if (message.content === "*Info") {
+    if (message.content === "+Info") {
 let embed = new Discord.RichEmbed()
 .setThumbnail(message.author.avatarURL)
 .setTitle('**:sparkle: ─══════ {✯Nameless Bot Info✯} ══════─ :sparkle:**')
