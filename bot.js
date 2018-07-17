@@ -25,7 +25,7 @@ if (!message.content.startsWith(prefix)) return;
 try{
 
  let ops = {
-     active: active
+     
  }
     let commandFile = require(`./commands/${cmd}.js`);
     commandFile.run(client, message, args, ops);
