@@ -15,24 +15,6 @@ const prefix = '+';
   client.on("guildCreate", guild => {
     console.log(` Join Bot Of Server ${guild.name} Owner Of Server ${guild.owner.user.username}!`)
   });
-client.on('message', message =>{
-
-let args = message.content.slice(prefix.length).trim().split(' ');
-let cmd = args.shift().toLowerCase();
-
-if (message.author.bot) return;
-if (!message.content.startsWith(prefix)) return;
-try{
-
- let ops = {
-     
- }
-    let commandFile = require(`./commands/${cmd}.js`);
-    commandFile.run(client, message, args, ops);
-
-}catch (e) {
-    console.log(e.stack);
-}
 
 });
 //Activity
