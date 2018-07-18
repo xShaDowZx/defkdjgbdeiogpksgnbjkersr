@@ -1009,7 +1009,7 @@ client.on("message", message => {
 //Join Support Server
              client.on('message', message => {
 				    var prefix = "+"
-                if(message.content === prefix + "Support") {
+                if(message.content === prefix + "support") {
                     let embed = new Discord.RichEmbed ()
                     embed.setTitle("** :arrow_right: Join Nameless Support Discord!**")
                     .setURL("https://discord.gg/YnaS8Up");
@@ -1039,7 +1039,7 @@ client.on("message", message => {
 ❖ +avatar  :camping: ➾ Shows your avatar or other players/members avatar
 ❖ +ser-av  :tent:  ➾ Shows your server avatar
 ❖ +bot :floppy_disk: ➾ Shows how many server and members there
-❖ +Info :notebook_with_decorative_cover: ➾ Info about the bot
+❖ +info :notebook_with_decorative_cover: ➾ Info about the bot
 ❖ +server  :recycle: ➾ For server information
 ❖ +id  :id: ➾ Shows your ID
 ❖ +roles  :eight_pointed_black_star:  ➾ Shows your server roles
@@ -1058,9 +1058,9 @@ client.on("message", message => {
 ❖ +achieve :clap: ➾ Achieve something in Minecraft
 ❖ +sug :notepad_spiral: ➾ Your suggestion
 ❖ +report :pencil: ➾ Report members
-❖ +Staff 💙  ➾ Shows Nameless Bot Staff Team
+❖ +staff 💙  ➾ Shows Nameless Bot Staff Team
 ❖ +inv :red_circle: ➾ Invite Nameless bot to your discord server
-❖ +Support :wrench:  ➾ Join Nameless Support Discord
+❖ +support :wrench:  ➾ Join Nameless Support Discord
 ════════════
 :red_circle: Nameless Support Discord :tools: ➾ https://discord.gg/atk3A2C
 :pushpin:  Don't forget to vote for Nameless Bot :heartbeat: ➾ https://discordbots.org/bot/465993722342014986/vote
@@ -1224,7 +1224,7 @@ let Embed = new Discord.RichEmbed()
 //Staff
 client.on("message", message => {
   var prefix ="+"
-    if (message.content === (prefix + "Staff")) {
+    if (message.content === (prefix + "staff")) {
      const embed = new Discord.RichEmbed() 
          .setColor("#580e6b")
          .setThumbnail(message.author.avatarURL)
@@ -1304,7 +1304,7 @@ client.on('message', message => {
                                      //  }); 
 //Info
 client.on('message', message => {
-    if (message.content === "+Info") {
+    if (message.content === "+info") {
 let embed = new Discord.RichEmbed()
 .setThumbnail(message.author.avatarURL)
 .setTitle('**:sparkle: ─══════ {✯Nameless Bot Info✯} ══════─ :sparkle:**')
