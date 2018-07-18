@@ -1244,6 +1244,7 @@ Nameless Partnership Manager:
 Nameless Supporters:
 :one: -@BarisE#5634 
 :two: -@SammyB#0788
+:three: -@Zentreax#8277 
 ════════════
 Nameless Discord Moderator:
 :wrench:-@Ashton#0546 
