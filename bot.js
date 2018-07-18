@@ -1308,4 +1308,53 @@ message.channel.sendEmbed(embed);
 client.on('guildMemberAdd', (member) => {
    member.addRole(member.guild.roles.find('name', 'Member'));
     });
+
+//Invite Blocker
+let al = JSON.parse(fs.readFileSync(`./inviteblocker.json`, `utf8`));
+
+
+client.on('message', message => {
+    var sender = message.author
+    if (!message.channel.guild) return;
+    if (message.author.bot) return null;
+
+    if (!al[message.guild.id]) al[message.guild.id] = {
+        onoff: 'Off'
+    }
+
+    if (message.content === prefix + 'guildinfo') {
+        let perms = message.member.hasPermission(`ADMINISTRATOR`)
+        if (!perms) return message.reply(`**You don't have permissions**`)
+        var embed = new Discord.RichEmbed()
+            .setTitle(`${message.guild.name}'s Config`)
+
+
+            .addField(`:no_entry_sign: inviteblocker : `, `inviteblocker State : ${al[message.guild.id].onoff}`)
+
+            .setColor(`BLUE`)
+        message.channel.send({
+            embed
+        })
+    }
+    if (message.content === prefix + 'inviteblocker') {
+        let perms = message.member.hasPermission(`ADMINISTRATOR`)
+        if (!perms) return message.reply(`**You don't have permissions**`)
+        let args = message.content.split(" ").slice(1)
+        if (!args.join(" ")) {
+            if (al[message.guild.id].onoff === 'Off') return [message.channel.send(`**Invite Blocker is now ON! :white_check_mark: **`), al[message.guild.id].onoff = 'On']
+            if (al[message.guild.id].onoff === 'On') return [message.channel.send(`**Invite Blocker is now Off! :no_entry_sign: **`), al[message.guild.id].onoff = 'Off'] //:D
+
+        }
+    }
+    if (message.content.includes('discord.gg','gg')) {
+        if (al[message.guild.id].onoff === 'Off') return
+        if (message.member.hasPermission('ADMINISTRATOR')) return;
+        message.delete()
+        return message.reply(`** Discord Invite Links are not allowed here! :anger:  **`)
+    }
+   
+    fs.writeFile("./inviteblocker.json", JSON.stringify(al), (err) => {
+        if (err) console.error(err)
+    });
+});
 client.login(process.env.BOT_TOKEN);
