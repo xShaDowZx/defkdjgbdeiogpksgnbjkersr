@@ -1145,14 +1145,6 @@ delete warn[message.author.id];
       .setFooter("【✭ Nameless Bot Anti-Spam ✭】")
       .setColor("c91616")
     message.channel.send(embed500)
-    	const embed20 = new Discord.RichEmbed()
-      .setTitle("**:scales: | You have been Muted**")
-      .setDescription(`**:small_blue_diamond: You have break the server rules\n \n:gun: : You got __Muted__\n :clock1: Time and date of punishment:\n`+ Year + "/" + Month + "/" + Day +', '+hours +'-' +minutes+'-'+seconds+"\n \n \n`In case the mute by mistake, contact server staff`**")
-          .setFooter("【✭ Nameless Bot Anti-Spam ✭】")
-      .setColor("c91616")
-    
-     message.author.send(embed20)
-  
   }
 });
 //fake hack
