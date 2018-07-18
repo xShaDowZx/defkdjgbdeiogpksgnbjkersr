@@ -534,19 +534,19 @@ message.channel.sendEmbed(embed);
 }
 });
 //help Auto Role
-//client.on('message', message => {
-//if (message.content === "+help-setup-AutoRole") { 
-//let embed = new Discord.RichEmbed()
-//.setThumbnail(message.author.avatarURL)
-//.setTitle('**:sparkle: ─══════  {✯Setup Auto Role :asterisk: ✯} ══════─ :sparkle: **')
-//.addField('** How to setup Auto Role?  **',"**Just Make new Role and name it ```Member```**") 
-//.addField('** :pushpin: Important:  **',"**We can only Auto Role `Member` role for now**") 
-//.addField("**:red_circle:  Nameless Support Discord :tools:   **","**-https://discord.gg/atk3A2C**") 
-//.addField("**:pushpin:  Don't forget to vote for Nameless Bot :heartbeat:**","**-https://discordbots.org/bot/465993722342014986/vote**")
-//.setColor('#7d2dbe')
-//message.channel.sendEmbed(embed);
-//}
-//});
+client.on('message', message => {
+if (message.content === "+help-setup-AutoRole") { 
+let embed = new Discord.RichEmbed()
+.setThumbnail(message.author.avatarURL)
+.setTitle('**:sparkle: ─══════  {✯Setup Auto Role :asterisk: ✯} ══════─ :sparkle: **')
+.addField('** How to setup Auto Role?  **',"**Just Make new Role and name it ```Member```**") 
+.addField('** :pushpin: Important:  **',"**We can only Auto Role `Member` role for now**") 
+.addField("**:red_circle:  Nameless Support Discord :tools:   **","**-https://discord.gg/atk3A2C**") 
+.addField("**:pushpin:  Don't forget to vote for Nameless Bot :heartbeat:**","**-https://discordbots.org/bot/465993722342014986/vote**")
+.setColor('#7d2dbe')
+message.channel.sendEmbed(embed);
+}
+});
 //Staff commands 
 client.on("message", message => {
   var prefix ="+"
@@ -1321,7 +1321,7 @@ message.channel.sendEmbed(embed);
 }
 });
 //Auto Role
-//client.on('guildMemberAdd', (member) => {
-   // member.addRole(member.guild.roles.find('name', 'Member'));
-    //});
+client.on('guildMemberAdd', (member) => {
+   member.addRole(member.guild.roles.find('name', 'Member'));
+    });
 client.login(process.env.BOT_TOKEN);
