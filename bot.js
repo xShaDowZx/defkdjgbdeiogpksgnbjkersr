@@ -15,8 +15,6 @@ const prefix = '+';
   client.on("guildCreate", guild => {
     console.log(` Join Bot Of Server ${guild.name} Owner Of Server ${guild.owner.user.username}!`)
   });
-
-});
 //Activity
 client.on('ready',() =>{
 
