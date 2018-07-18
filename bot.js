@@ -1238,6 +1238,9 @@ Nameless Head Developers👑:
 Nameless Support Manager:
 -༺ @_𝕱𝖊𝖆𝖗𝖑𝖊𝖘𝖘#0175 ༻
 ════════════
+Nameless Partnership Manager:
+-༺ @BuggyPlayz#0931 ༻
+════════════
 Nameless Supporters:
 :one: -@BarisE#5634 
 :two: -@SammyB#0788
