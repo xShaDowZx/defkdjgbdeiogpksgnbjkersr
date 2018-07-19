@@ -1042,9 +1042,9 @@ client.on("message", message => {
 ❖ +report :pencil: ➾ Report members
 ❖ +staff 💙  ➾ Shows Nameless Bot Staff Team
 ❖ +inv :red_circle: ➾ Invite Nameless bot to your discord server
-❖ +support :wrench:  ➾ Join Nameless Support Discord
-❖ +vote :red_circle: ➾ Vote for Nameless Bot
-❖ +store :wrench:  ➾ Nameless Store
+❖ +support :wrench: ➾ Join Nameless Support Discord
+❖ +vote :heartbeat: ➾ Vote for Nameless Bot
+❖ +store :moneybag:  ➾ Nameless Store
 ════════════
 :red_circle: Nameless Support Discord :tools: ➾ https://discord.gg/atk3A2C
 :pushpin:  Don't forget to vote for Nameless Bot :heartbeat: ➾ https://discordbots.org/bot/465993722342014986/vote
