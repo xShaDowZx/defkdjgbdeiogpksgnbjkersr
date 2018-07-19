@@ -1043,6 +1043,8 @@ client.on("message", message => {
 ❖ +staff 💙  ➾ Shows Nameless Bot Staff Team
 ❖ +inv :red_circle: ➾ Invite Nameless bot to your discord server
 ❖ +support :wrench:  ➾ Join Nameless Support Discord
+❖ +vote :red_circle: ➾ Vote for Nameless Bot
+❖ +store :wrench:  ➾ Nameless Store
 ════════════
 :red_circle: Nameless Support Discord :tools: ➾ https://discord.gg/atk3A2C
 :pushpin:  Don't forget to vote for Nameless Bot :heartbeat: ➾ https://discordbots.org/bot/465993722342014986/vote
@@ -1358,5 +1360,25 @@ client.on('message', message => {
     fs.writeFile("./inviteblocker.json", JSON.stringify(al), (err) => {
         if (err) console.error(err)
     });
+});
+//Vote for Nameless Bot
+             client.on('message', message => {
+				    var prefix = "+"
+                if(message.content === prefix + "vote") {
+                    let embed = new Discord.RichEmbed ()
+                    embed.setTitle("** :arrow_right: Vote for Nameless Bot!**")
+                    .setURL("https://discordbots.org/bot/465993722342014986/vote");
+                   message.channel.sendEmbed(embed);
+                  }
+});
+//Nameless Store
+             client.on('message', message => {
+				    var prefix = "+"
+                if(message.content === prefix + "store") {
+                    let embed = new Discord.RichEmbed ()
+                    embed.setTitle("** :arrow_right: Nameless Store!**")
+                    .setURL("https://www.patreon.com/NamelessBot");
+                   message.channel.sendEmbed(embed);
+                  }
 });
 client.login(process.env.BOT_TOKEN);
