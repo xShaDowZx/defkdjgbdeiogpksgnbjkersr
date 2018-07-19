@@ -641,17 +641,17 @@ client.on('message', message => {
 //avatar 
 client.on('message', message => {
     if (message.content.startsWith("+avatar")) {
+if(!message.channel.guild) return;
         var mentionned = message.mentions.users.first();
-    var x5bzm;
+    var client;
       if(mentionned){
-          var x5bzm = mentionned;
-      } else {
-          var x5bzm = message.author;
-          
+          var client = mentionned; } else {
+          var client = message.author;
       }
         const embed = new Discord.RichEmbed()
-        .setColor("RANDOM")
-        .setImage(`${x5bzm.avatarURL}`)
+                           .addField('Requested by:', "<@" + message.author.id + ">")
+        .setColor('RANDOM')
+        .setImage(`${client.avatarURL}`)
       message.channel.sendEmbed(embed);
     }
 });
