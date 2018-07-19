@@ -820,7 +820,7 @@ const mapping = {
 
 client.on('message' , async (message) => {
   var prefix = "+"
-       if(message.content.startsWith(prefix + "e")) {
+       if(message.content.startsWith(prefix + "word")) {
           let args = message.content.split(" ").slice(1);
   if (args.length < 1) {
     message.channel.send('You must provide some text to emojify!');
@@ -1026,7 +1026,8 @@ client.on("message", message => {
 ❖ +id  :id: ➾ Shows your ID
 ❖ +roles  :eight_pointed_black_star:  ➾ Shows your server roles
 ❖ +member :hearts: ➾ Shows everyone Status
-❖ +e  :gem: ➾ Write your word in emoji
+❖ +word  :gem: ➾ Write your word in emoji
+❖ +emojilist :zap:  ➾ Shows your server emojis
 ❖ +flip  :arrows_clockwise: ➾ Flip your word
 ❖ +calculate :thinking: ➾ calculate
 ❖ +tag :pen_ballpoint: ➾ put your name or any other name
