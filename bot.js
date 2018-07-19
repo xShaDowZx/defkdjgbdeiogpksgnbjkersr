@@ -557,7 +557,7 @@ __(Staff Commands)__
 ❖ +mutevoice  :no_mouth: ➾ Mute members (Voice)
 ❖ +unmutevoice  :smile: ➾ Unmute members (Voice)
 ❖ +move  :airplane: ➾ Move members to your Voice channel (Voice)
-❖ +inviteblocker  :no_entry:  ➾ Discord Invite Blocker)
+❖ +inviteblocker  :no_entry:  ➾ Enable/Disable Discord Invite Blocker
 ════════════
 :red_circle: Nameless Support Discord :tools: ➾ https://discord.gg/atk3A2C
 :pushpin:  Don't forget to vote for Nameless Bot :heartbeat: ➾ https://discordbots.org/bot/465993722342014986/vote
