@@ -1261,7 +1261,7 @@ client.on('guildMemberAdd', (member) => {
     member.addRole(member.guild.roles.find('name', 'not active'));
     });
     client.on('message', message => {   
-      var prefix = "*"
+      var prefix = "+"
         if(!message.channel.guild) return;
            if(message.content.startsWith(prefix + 'active')) {
             let modlog = client.channels.find('name', 'log');
