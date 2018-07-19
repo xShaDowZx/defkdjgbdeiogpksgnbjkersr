@@ -333,7 +333,7 @@ client.on('guildCreate', guild => {
     client.channels.get("467682139975057408").send(`**Nameless Bot joined a new server ✅
   Server name: __${guild.name}__
   Server owner: __${guild.owner}__
-  Servers Counter : __${client.guilds.size}**`)
+  Servers Counter : __${client.guilds.size}__**`)
   });
 
  client.on('message' , message => {
