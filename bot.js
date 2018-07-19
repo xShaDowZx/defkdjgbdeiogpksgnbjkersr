@@ -1222,13 +1222,15 @@ Nameless Head Developers👑:
 Nameless Support Manager:
 -༺ @_𝕱𝖊𝖆𝖗𝖑𝖊𝖘𝖘#0175 ༻
 ════════════
+Nameless Shop Manager:
+-༺ @BarisE#5634 ༻
+════════════
 Nameless Partnership Manager:
 -༺ @BuggyPlayz#0931 ༻
 ════════════
 Nameless Supporters:
-:one: -@BarisE#5634 
-:two: -@SammyB#0788
-:three: -@Zentreax#8277 
+:one: -@SammyB#0788
+:two: -@Zentreax#8277 
 ════════════
 Nameless Discord Moderator:
 :wrench:-@Ashton#0546 
