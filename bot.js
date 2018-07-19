@@ -820,7 +820,7 @@ const mapping = {
 
 client.on('message' , async (message) => {
   var prefix = "+"
-       if(message.content.startsWith(prefix + "emoji")) {
+       if(message.content.startsWith(prefix + "e")) {
           let args = message.content.split(" ").slice(1);
   if (args.length < 1) {
     message.channel.send('You must provide some text to emojify!');
@@ -1026,7 +1026,7 @@ client.on("message", message => {
 ❖ +id  :id: ➾ Shows your ID
 ❖ +roles  :eight_pointed_black_star:  ➾ Shows your server roles
 ❖ +member :hearts: ➾ Shows everyone Status
-❖ +emoji  :gem: ➾ Write your word in emoji
+❖ +e  :gem: ➾ Write your word in emoji
 ❖ +flip  :arrows_clockwise: ➾ Flip your word
 ❖ +calculate :thinking: ➾ calculate
 ❖ +tag :pen_ballpoint: ➾ put your name or any other name
@@ -1382,5 +1382,21 @@ client.on('message', message => {
                     .setURL("https://www.patreon.com/NamelessBot");
                    message.channel.sendEmbed(embed);
                   }
+});
+//emoji list
+client.on('message', message => { 
+let prefix = '+'
+    if (message.content.startsWith(prefix + 'emojilist')) {
+
+        const List = message.guild.emojis.map(e => e.toString()).join(" ");
+
+        const EmojiList = new Discord.RichEmbed()
+            .setTitle('➠ Emojis') 
+            .setAuthor(message.guild.name, message.guild.iconURL) 
+            .setColor('RANDOM') 
+            .setDescription(List) 
+            .setFooter(message.guild.name) 
+        message.channel.send(EmojiList) 
+    }
 });
 client.login(process.env.BOT_TOKEN);
