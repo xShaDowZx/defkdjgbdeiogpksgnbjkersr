@@ -547,6 +547,7 @@ client.on("message", message => {
   :radioactive:Management orders:no_entry:
 ╚[❖════════════❖]╝
 __(Staff Commands)__
+❖ +say :robot: ➾ The bot is going to say what you want
 ❖ +clear :octagonal_sign:➾ Clear Chat
 ❖ +kick  :outbox_tray: ➾ Kick members
 ❖ +ban :no_entry: ➾ Ban members
@@ -744,19 +745,14 @@ client.on('message', message => {
     }
   });
 //say
+//say
 client.on('message', message => {
   var prefix = "+"
-    if (message.author.bot) return;
-    if (!message.content.startsWith(prefix)) return;
-  
-    let command = message.content.split(" ")[0];
-    command = command.slice(prefix.length);
-  
-    let args = message.content.split(" ").slice(1);
-  
-    if (command == "say") {
-     message.channel.sendMessage(args.join("  "))
-     message.delete()
+    if (message.content.startsWith(prefix + "say")) {
+      if (!message.member.hasPermission('ADMINISTRATOR')) return message.reply("**This is for management only (Who have __ADMINISTRATOR__ ON can use this command)**");
+        let args = message.content.split(" ").slice(1)
+        let text = args.join(' ').replace('$userid', message.author.id).replace('server-name', message.guild.name)
+        message.channel.send(text)
     }
 });
 //bot
