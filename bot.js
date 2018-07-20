@@ -1084,7 +1084,7 @@ let muteRole1 = message.guild.roles.find("name", "Muted");
         warn[message.author.id]++;
         message.author.delete
       }
-      if (warn[message.author.id] < 4) {
+      if (warn[message.author.id] < 6) {
         message.author.delete
 
       }
@@ -1097,7 +1097,7 @@ let muteRole1 = message.guild.roles.find("name", "Muted");
 
     }
   }
-  if (warn[message.author.id] == 4) {		   
+  if (warn[message.author.id] == 6) {		   
      if (!message.channel.guild) return;
              message.author.delete
 
