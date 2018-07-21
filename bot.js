@@ -1018,30 +1018,30 @@ client.on("message", message => {
 ❖ +ser-av  :tent:  ➾ Shows your server avatar
 ❖ +bot :floppy_disk: ➾ Shows how many server and members there
 ❖ +info :notebook_with_decorative_cover: ➾ Info about the bot
-❖ +server  :recycle: ➾ For server information
+❖ +server  :recycle: ➾ For server information 
 ❖ +id  :id: ➾ Shows your ID
 ❖ +roles  :eight_pointed_black_star:  ➾ Shows your server roles
 ❖ +member :hearts: ➾ Shows everyone Status
-❖ +word  :gem: ➾ Write your word in emoji
+❖ +word  :gem: ➾ Write your word in emoji 
 ❖ +emojilist :zap:  ➾ Shows your server emojis
 ❖ +flip  :arrows_clockwise: ➾ Flip your word
 ❖ +calculate :thinking: ➾ calculate
 ❖ +tag :pen_ballpoint: ➾ put your name or any other name
 ❖ +uptime  :timer: ➾ Bot uptime
-❖ +day :cloud: ➾ Shows the date and the time
+❖ +day :cloud: ➾ Shows the date and the time 
 ❖ +hack  :satellite:  ➾ Fake hack 
 ❖ +sh  🔎  ➾ Search for members in your discord server
 ❖ +Link  :link: ➾ Give you your Discord invite link 
 ❖ +mcserver-stats  :bookmark_tabs: ➾ Check any Minecraft server stats 
-❖ +MCskin :heart_eyes: ➾ Shows your Minecraft skin
+❖ +MCskin :heart_eyes: ➾ Shows your Minecraft skin 
 ❖ +achieve :clap: ➾ Achieve something in Minecraft
 ❖ +sug :notepad_spiral: ➾ Your suggestion
 ❖ +report :pencil: ➾ Report members
 ❖ +staff 💙  ➾ Shows Nameless Bot Staff Team
-❖ +inv :red_circle: ➾ Invite Nameless bot to your discord server
+❖ +inv :red_circle: ➾ Invite Nameless bot to your discord server 
 ❖ +support :wrench: ➾ Join Nameless Support Discord
 ❖ +vote :heartbeat: ➾ Vote for Nameless Bot
-❖ +store :moneybag:  ➾ Nameless Store
+❖ +donate :moneybag:  ➾ Nameless Get Premium 
 ════════════
 :red_circle: Nameless Support Discord :tools: ➾ https://discord.gg/atk3A2C
 :pushpin:  Don't forget to vote for Nameless Bot :heartbeat: ➾ https://discordbots.org/bot/465993722342014986/vote
@@ -1373,9 +1373,9 @@ client.on('message', message => {
 //Nameless Store
              client.on('message', message => {
 				    var prefix = "+"
-                if(message.content === prefix + "store") {
+                if(message.content === prefix + "donate") {
                     let embed = new Discord.RichEmbed ()
-                    embed.setTitle("** :arrow_right: Nameless Store!**")
+                    embed.setTitle("** :arrow_right: Nameless Get Premium!**")
                     .setURL("https://www.patreon.com/NamelessBot");
                    message.channel.sendEmbed(embed);
                   }
