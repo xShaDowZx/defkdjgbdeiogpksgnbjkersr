@@ -31,7 +31,7 @@ client.on('message', msg => {
     if (msg.content.startsWith('+warn')) {
       if(!msg.member.hasPermission("MUTE_MEMBERS")) return;
        let args = msg.content.split(" ").slice(1);
-      if (!msg.mentions.members.first()) return msg.reply('**Mention a user/player ```Example: *warn @unknown#1547 spamming```**')
+      if (!msg.mentions.members.first()) return msg.reply('**Mention a user/player ```Example: +warn @unknown#1547 spamming```**')
       if (!args[1]) return msg.reply('**Reason for warning**')
       if (msg.guild.channels.find('name', '⚠-warns')) {
         msg.guild.channels.find('name', '⚠-warns').send(`
@@ -51,13 +51,13 @@ client.on("message", function(message) {
     var prefix = "+"
    if(message.content.startsWith(prefix + "ban")) {
        if(!message.member.hasPermission("BAN_MEMBERS")) return message.reply("**You dont have enough permissions!**");
-       if(!toBan) return message.reply("** Mention a user! ```Example: *ban @unknown#1547 spamming```**");
-       if(toBan.id === ("447121312960479242")) return message.reply("**# You cannot ban me!**");
-       if(toBan === message.member.guild.owner) return message.reply("**# You cannot ban the owner of the server!**");
-       if(toBan.bannable) return message.reply("**# - I cannot ban someone with a higher role than me!**");
-       if(!toReason) return message.reply("**# - Supply a reason!**")
-       if(toBan.id === message.author.id) return message.reply("**# You cannot ban yourself!**")
-       if(!message.guild.member(toBan).bannable) return message.reply("**# - I cannot ban this person!**")
+       if(!toBan) return message.reply("** Mention a user! ```Example: +ban @unknown#1547 spamming```**");
+       if(toBan.id === ("447121312960479242")) return message.reply("**You cannot ban me!**");
+       if(toBan === message.member.guild.owner) return message.reply("**You cannot ban the owner of the server!**");
+       if(toBan.bannable) return message.reply("**#I cannot ban someone with a higher role than me!**");
+       if(!toReason) return message.reply("**Supply a reason!**")
+       if(toBan.id === message.author.id) return message.reply("**You cannot ban yourself!**")
+       if(!message.guild.member(toBan).bannable) return message.reply("**I cannot ban this person!**")
        let toEmbed;
        toEmbed = new Discord.RichEmbed()
        .setTitle("You have been banned from a server!")
@@ -66,7 +66,7 @@ client.on("message", function(message) {
        .addField("**# - Reason:**",toReason,true)
        .addField("**# - Banned By:**",message.author,true)
        if(message.member.hasPermission("BAN_MEMBERS")) return (
-           toBan.sendMessage({embed: toEmbed}).then(() => message.guild.member(toBan).ban({reason: toReason})).then(() => message.channel.send(`**# Done! I banned: ${toBan}**`))
+           toBan.sendMessage({embed: toEmbed}).then(() => message.guild.member(toBan).ban({reason: toReason})).then(() => message.channel.send(`**Done! I banned: ${toBan}**`))
        );
        
    }
@@ -80,9 +80,9 @@ client.on('message',function(message) {
     var prefix = "+"
    if(message.content.startsWith(prefix + 'kick')) {
        if(!message.member.hasPermission("KICK_MEMBERS")) return message.reply('**You dont have enough permissions!**');
-       if(!toReason) return message.reply("**Mention a user!  ```Example: *kick @unknown#1547 spamming```**")
-       if(toKick.id === message.author.id) return message.reply("**# You cannot kick yourself!**")
-       if(!message.guild.member(toKick).bannable) return message.reply("**# - I cannot ban this person!**")
+       if(!toReason) return message.reply("**Mention a user!  ```Example: +kick @unknown#1547 spamming```**")
+       if(toKick.id === message.author.id) return message.reply("**You cannot kick yourself!**")
+       if(!message.guild.member(toKick).bannable) return message.reply("**I cannot ban this person!**")
        let toEmbed;
        toEmbed = new Discord.RichEmbed()
        .setTitle("You have been kicked from a server!")
@@ -91,7 +91,7 @@ client.on('message',function(message) {
        .addField("**# - Reason:**",toReason,true)
        .addField("**# - Kicked By:**",message.author,true)
        if(message.member.hasPermission("KICK_MEMBERS")) return (
-           toKick.sendMessage({embed: toEmbed}).then(() => message.guild.member(toKick).kick()).then(() => message.channel.send(`**# Done! I kicked: ${toKick}**`))
+           toKick.sendMessage({embed: toEmbed}).then(() => message.guild.member(toKick).kick()).then(() => message.channel.send(`**Done! I kicked: ${toKick}**`))
        )
        }
 });
@@ -133,7 +133,7 @@ client.on("message", message => {
   let modlog = client.channels.find('name', 'mute-log');
   let muteRole = client.guilds.get(message.guild.id).roles.find('name', 'Muted');
   if (!muteRole) return message.reply("** There is no Mute Role 'Muted' **").catch(console.error);
-  if (message.mentions.users.size < 1) return message.reply('** You must mention person first ```Example: *mute @unknown#1547 spamming```**').catch(console.error);
+  if (message.mentions.users.size < 1) return message.reply('** You must mention person first ```Example: +mute @unknown#1547 spamming```**').catch(console.error);
   
   const embed = new Discord.RichEmbed()
     .setColor(0x00AE86)
@@ -167,7 +167,7 @@ return message.reply("**Done The member got muted .. :white_check_mark:**").catc
   let modlog = client.channels.find('name', 'mute-log');
   let muteRole = client.guilds.get(message.guild.id).roles.find('name', 'Muted');
   if (!muteRole) return message.reply("** There is no Mute Role 'Muted' **").catch(console.error);
-  if (message.mentions.users.size < 1) return message.reply('** You must mention person first ```Example: *unmute @unknown#1547```**').catch(console.error);
+  if (message.mentions.users.size < 1) return message.reply('** You must mention person first ```Example: +unmute @unknown#1547```**').catch(console.error);
   const embed = new Discord.RichEmbed()
     .setColor(0x00AE86)
     .setTimestamp()
@@ -224,7 +224,7 @@ client.on('message', message => {
         if(!message.guild.member(client.user).hasPermission("MUTE_MEMBERS")) return message.reply("**I Don't Have `MUTE_MEMBERS` Permission**").then(msg => msg.delete(6000))
          
       if(message.mentions.users.size === 0) {
-        return message.reply("**Mention a player to give him mute** ```Example: *mutevoice @unknown#1547```");
+        return message.reply("**Mention a player to give him mute** ```Example: +mutevoice @unknown#1547```");
       }
       let muteMember = message.guild.member(message.mentions.users.first());
       if(!muteMember) {
@@ -244,7 +244,7 @@ client.on('message', message => {
       if(!message.guild.member(client.user).hasPermission("MUTE_MEMBERS")) return message.reply("**I Don't Have `MUTE_MEMBERS` Permission**").then(msg => msg.delete(6000))
        
     if(message.mentions.users.size === 0) {
-        return message.reply("**Mention a player to unmute him** ```Example: *unmutevoice @unknown#1547```");
+        return message.reply("**Mention a player to unmute him** ```Example: +unmutevoice @unknown#1547```");
     }
     let muteMember = message.guild.member(message.mentions.users.first());
     if(!muteMember) {
@@ -262,7 +262,7 @@ if(!message.channel.guild) return;
 if(message.content.startsWith(prefix + 'move')) {
  if (message.member.hasPermission("MOVE_MEMBERS")) {
  if (message.mentions.users.size === 0) {
- return message.reply("**Mention a player to move it to you** ```Example: *move @unknown#1547```")
+ return message.reply("**Mention a player to move it to you** ```Example: +move @unknown#1547```")
 }
 if (message.member.voiceChannel != null) {
  if (message.mentions.members.first().voiceChannel != null) {
@@ -293,7 +293,7 @@ if (msg.content.startsWith(`+report`)) {
 
    let args = msg.content.split(" ").slice(1);
 
-  if (!msg.mentions.members.first()) return msg.reply('**You must mention person first** ```Example: *report @unknown#1547 spamming``` ')
+  if (!msg.mentions.members.first()) return msg.reply('**You must mention person first** ```Example: +report @unknown#1547 spamming``` ')
 
   if (!args[1]) return msg.reply(`**Ummm .. Write your report**`)
 
@@ -314,7 +314,7 @@ if (msg.content.startsWith(`+sug`)) {
 
    let args = msg.content.split(" ").slice(1);
 
-  if (!msg.mentions.members.first()) return msg.reply('**You must mention yourself first** ```Example: *sug  @YourName#1547 adding new commands``` ')
+  if (!msg.mentions.members.first()) return msg.reply('**You must mention yourself first** ```Example: +sug  @YourName#1547 adding new commands``` ')
 
   if (!args[1]) return msg.reply(`**Ummm .. Write your suggestion**`)
 
@@ -1080,7 +1080,7 @@ let muteRole1 = message.guild.roles.find("name", "Muted");
         warn[message.author.id]++;
         message.author.delete
       }
-      if (warn[message.author.id] < 6) {
+      if (warn[message.author.id] < 4) {
         message.author.delete
 
       }
@@ -1093,7 +1093,7 @@ let muteRole1 = message.guild.roles.find("name", "Muted");
 
     }
   }
-  if (warn[message.author.id] == 6) {		   
+  if (warn[message.author.id] == 4) {		   
      if (!message.channel.guild) return;
              message.author.delete
 
@@ -1141,7 +1141,7 @@ client.on('message', message => {
         .setTimestamp();
 
     if (!user) {
-        embed.addField("**【✭ Nameless Bot ✭】**", '**Who do you want to hack? ```Example: *hack @unknown#1547 Test```**')
+        embed.addField("**【✭ Nameless Bot ✭】**", '**Who do you want to hack? ```Example: +hack @unknown#1547 Test```**')
             .setFooter(`Nameless Bot`);
         return message.channel.send({embed});
     } if (!reason) {
@@ -1179,7 +1179,7 @@ client.on('message', message => {
 let Embed = new Discord.RichEmbed()
         .setColor(0x36393e);
     if (!args[0]) {
-        Embed.setFooter(`Example: *sh Name`);
+        Embed.setFooter(`Example: +sh Name`);
         return message.channel.send(Embed); 
     }
 
@@ -1246,7 +1246,7 @@ client.on('message', message => {
   const port = '25565'
   if(message.content.startsWith('+mcserver-stats')) {
  const args = message.content.split(" ").slice(1).join(" ")
-    if (!args) return message.channel.send("** Type the server IP ```Example: *mcserver-stats mc.hypixel.net``` **");
+    if (!args) return message.channel.send("** Type the server IP ```Example: +mcserver-stats mc.hypixel.net``` **");
         let embed = new Discord.RichEmbed()
         .setColor('RANDOM')
         .setThumbnail(`https://api.minetools.eu/favicon/${args}/25565`)
