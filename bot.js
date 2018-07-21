@@ -1266,7 +1266,7 @@ client.on('guildMemberAdd', (member) => {
         if(!message.channel.guild) return;
            if(message.content.startsWith(prefix + 'verify')) {
             let modlog = client.channels.find('name', 'log');
-message.channel.sendMessage(`Press Check to get verified`).then(msg => {
+message.channel.sendMessage(`**Press Check to get verified**`).then(msg => {
             
             
             msg.react('✅')
