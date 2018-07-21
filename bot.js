@@ -1259,12 +1259,12 @@ client.on('message', message => {
 }});
 //verfiy
 client.on('guildMemberAdd', (member) => {
-    member.addRole(member.guild.roles.find('name', 'not active'));
+    member.addRole(member.guild.roles.find('name', 'Not Verified'));
     });
     client.on('message', message => {   
       var prefix = "+"
         if(!message.channel.guild) return;
-           if(message.content.startsWith(prefix + 'active')) {
+           if(message.content.startsWith(prefix + 'verify')) {
             let modlog = client.channels.find('name', 'log');
 message.channel.sendMessage(`Press Check to get verified`).then(msg => {
             
@@ -1280,10 +1280,10 @@ message.channel.sendMessage(`Press Check to get verified`).then(msg => {
          
                                                             
                                   active.on("collect", r => {
-                                       message.member.addRole(message.guild.roles.find("name", "active"));
-                                       message.member.removeRole(message.guild.roles.find("name", "not active"));
+                                       message.member.addRole(message.guild.roles.find("name", "Verified"));
+                                       message.member.removeRole(message.guild.roles.find("name", "Not Verified"));
                                        msg.delete();
-                                       message.channel.send(`**You have bee verified.**`).then(m => m.delete(1000));
+                                       message.channel.send(`**You have been verified.**`).then(m => m.delete(1000));
          
                                        })
                                        })
