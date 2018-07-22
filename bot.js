@@ -349,11 +349,11 @@ if(!message.channel.guild) return;
          message.channel.sendEmbed(Embed11)
     }
 });
-//bot owner 
+//bot owners
 client.on('message', message => {
   var prefix = "+"
   if (!message.content.startsWith(prefix)) return;
-  const verifed = ["236192758765715456"]; 
+  const verifed = ["236192758765715456","315848387947790336"]; 
 if (message.content.startsWith(prefix + 'owner')) {
 if( verifed.some(word => message.author.id.includes(word)) ) {    return message.channel.sendMessage(`**   The owner of the bot is here**` + `✅`)
 } else {
