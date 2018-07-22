@@ -1478,8 +1478,8 @@ client.on("message", (message) => {
 if (message.content.toLowerCase().startsWith(prefix + `new`)) {
     const reason = message.content.split(" ").slice(1).join(" ");
     if (!message.guild.roles.exists("name", "Support Team")) return message.channel.send(`**This server doesn't have a __\`Support Team\`__ role made.**`);
-    if (message.guild.channels.exists("name", "ticket-" + message.author.username)) return message.channel.send(`**You already have a ticket open.**`);
-    message.guild.createChannel(`ticket-${message.author.username}`, "text").then(c => {
+    if (message.guild.channels.exists("name", "ticket-" + message.author.id)) return message.channel.send(`**You already have a ticket open.**`);
+    message.guild.createChannel(`ticket-${message.author.id}`, "text").then(c => {
         let role = message.guild.roles.find("name", "Support Team");
         let role2 = message.guild.roles.find("name", "@everyone");
         c.overwritePermissions(role, {
