@@ -408,9 +408,10 @@ let embed = new Discord.RichEmbed()
 .setThumbnail(message.author.avatarURL)
 .setTitle('**:sparkle: ─══════ {✯Choose✯} ══════─ :sparkle:**')
 .addField('     **❧ +help-1 ➺ Setup the bot :wrench: ** ','**════════════**') 
-.addField('     **❧ +help-2 ➺ General commands :fire:**','**════════════**') 
+.addField('     **❧ +help-2 ➺ General Commands :fire:**','**════════════**') 
 .addField('     **❧ +help-3 ➺ Music Commands __(Coming Soon)__ :musical_note: **' ,'**════════════**') 
-.addField('     **❧ +help-4 ➺ Management orders__(Staff Commands)__ :no_entry:**' ,'**════════════**') 
+.addField('     **❧ +help-4 ➺ Tickets Commands :notepad_spiral:**' ,'**════════════**') 
+.addField('     **❧ +help-5 ➺ Management orders__(Staff Commands)__ :no_entry:**' ,'**════════════**') 
 .addField('     **❧ :pushpin: Important ➺ give the bot needed __permissions__ So it can work without any problems :no_entry:**' ,'**════════════**') 
 .addField("**:red_circle:  Nameless Support Discord :tools:   **","**-https://discord.gg/atk3A2C**") 
 .addField("**:pushpin:  Don't forget to vote for Nameless Bot :heartbeat:**","**-https://discordbots.org/bot/465993722342014986/vote**")
@@ -431,7 +432,9 @@ let embed = new Discord.RichEmbed()
 .addField('     **❧ +help-setup-sug  ➺ Setup suggestions 📋** ','**════════════**')  //Done
 .addField('     **❧ +help-setup-welcome ➺ Setup welcome message 👋** ','**════════════**') //Done
 .addField('     **❧ +help-setup-goodbye ➺ Setup goodbye message  😢** ','**════════════**') //Done
-//.addField('     **❧ +help-setup-AutoRole ➺ Setup Auto Role  :asterisk:** ','**════════════**') //Done
+.addField('     **❧ +help-setup-AutoRole ➺ Setup Auto Role  :asterisk:** ','**════════════**') //Done
+.addField('     **❧ +help-setup-tickets ➺ Setup tickets :notepad_spiral:** ','**════════════**') //Done
+.addField('     **❧ +help-setup-verify ➺ Setup Verify :bust_in_silhouette: ** ','**════════════**') //Done
 .addField("**:red_circle:  Nameless Support Discord :tools:   **","**-https://discord.gg/atk3A2C**") 
 .addField("**:pushpin:  Don't forget to vote for Nameless Bot :heartbeat:**","**-https://discordbots.org/bot/465993722342014986/vote**")
 .setColor('#7d2dbe')
@@ -528,10 +531,39 @@ let embed = new Discord.RichEmbed()
 message.channel.sendEmbed(embed);
 }
 });
+//help Tickets
+client.on('message', message => {
+if (message.content === "+help-setup-tickets") { 
+let embed = new Discord.RichEmbed()
+.setThumbnail(message.author.avatarURL)
+.setTitle('**:sparkle: ─══════  {✯Setup Tickets System :notepad_spiral: ✯} ══════─ :sparkle: **')
+.addField('** How to setup Tickets System?  **',"**Just Make new Role and name it ```Member```**") 
+.addField('** :pushpin: Important:  **',"**Create new role and name it `Support Team` and you done. Now just let your member use this command `+new` to make a ticket**") 
+.addField("**:red_circle:  Nameless Support Discord :tools:   **","**-https://discord.gg/atk3A2C**") 
+.addField("**:pushpin:  Don't forget to vote for Nameless Bot :heartbeat:**","**-https://discordbots.org/bot/465993722342014986/vote**")
+.setColor('#7d2dbe')
+message.channel.sendEmbed(embed);
+}
+});
+//help Verify
+client.on('message', message => {
+if (message.content === "+help-setup-verify") { 
+let embed = new Discord.RichEmbed()
+.setThumbnail(message.author.avatarURL)
+.setTitle('**:sparkle: ─══════  {✯Setup Verify :bust_in_silhouette: ✯} ══════─ :sparkle: **')
+.addField('** How to setup Setup Verify?  **',"**Make 2 Roles and name the first role ```Verified``` and give it access to read msgs**") 
+.addField('** Then make second role and name it ```Not Verified``` **',"**you going to disable read msgs on every channel so they can use this command `+verify` on the channel you want**") 
+.addField('** :pushpin: The Bot is going to Auto role `Not Verified` role  **',"**If you get any problem join our Nameless Support Discord**") 
+.addField("**:red_circle:  Nameless Support Discord :tools:   **","**-https://discord.gg/atk3A2C**") 
+.addField("**:pushpin:  Don't forget to vote for Nameless Bot :heartbeat:**","**-https://discordbots.org/bot/465993722342014986/vote**")
+.setColor('#7d2dbe')
+message.channel.sendEmbed(embed);
+}
+});
 //Staff commands 
 client.on("message", message => {
   var prefix ="+"
-    if (message.content === (prefix + "help-4")) {
+    if (message.content === (prefix + "help-5")) {
      const embed = new Discord.RichEmbed() 
          .setColor("#580e6b")
          .setThumbnail(message.author.avatarURL)
@@ -1397,4 +1429,100 @@ let prefix = '+'
         message.channel.send(EmojiList) 
     }
 });
+//Ticket commands 
+client.on("message", message => {
+  var prefix ="+"
+    if (message.content === (prefix + "help-4")) {
+     const embed = new Discord.RichEmbed() 
+         .setColor("#580e6b")
+         .setThumbnail(message.author.avatarURL)
+         .setDescription(`
+ **
+╔[❖════════════❖]╗
+              Nameless Bot
+╚[❖════════════❖]╝
+╔[❖════════════❖]╗
+              Prefix = ' + '
+╚[❖════════════❖]╝
+╔[❖════════════❖]╗
+     Tickets Commands :notepad_spiral: 
+╚[❖════════════❖]╝
+❖ +new :pencil: ➾ Its going to open a Support Ticket only you and who have Support Team Role can view it.
+❖ +close  :wastebasket: ➾ Close the Support Ticket.
+════════════
+:red_circle: Nameless Support Discord :tools: ➾ https://discord.gg/atk3A2C
+:pushpin:  Don't forget to vote for Nameless Bot :heartbeat: ➾ https://discordbots.org/bot/465993722342014986/vote
+════════════
+**`)
+   message.channel.sendEmbed(embed)
+   
+   }
+   }); 
+//Tickets
+function clean(text) {
+    if (typeof(text) === "string")
+      return text.replace(/`/g, "`" + String.fromCharCode(8203)).replace(/@/g, "@" + String.fromCharCode(8203));
+    else
+        return text;
+}
+
+var token = " ";
+
+client.on("ready", () => {
+  console.log("Nameless Ticket System is ON");
+});
+
+client.on("message", (message) => {
+  if (!message.content.startsWith(prefix) || message.author.bot) return;
+
+if (message.content.toLowerCase().startsWith(prefix + `new`)) {
+    const reason = message.content.split(" ").slice(1).join(" ");
+    if (!message.guild.roles.exists("name", "Support Team")) return message.channel.send(`**This server doesn't have a __\`Support Team\`__ role made.**`);
+    if (message.guild.channels.exists("name", "ticket-" + message.author.username)) return message.channel.send(`**You already have a ticket open.**`);
+    message.guild.createChannel(`ticket-${message.author.username}`, "text").then(c => {
+        let role = message.guild.roles.find("name", "Support Team");
+        let role2 = message.guild.roles.find("name", "@everyone");
+        c.overwritePermissions(role, {
+            SEND_MESSAGES: true,
+            READ_MESSAGES: true
+        });
+        c.overwritePermissions(role2, {
+            SEND_MESSAGES: false,
+            READ_MESSAGES: false
+        });
+        c.overwritePermissions(message.author, {
+            SEND_MESSAGES: true,
+            READ_MESSAGES: true
+        });
+        message.channel.send(`**:white_check_mark: Your ticket has been created, #${c.name}.**`);
+        const embed = new Discord.RichEmbed()
+        .setColor(0xCF40FA)
+        .addField(`Dear @${message.author.username}!`, `**Thank you for reaching out to our Support Team! We will get back to you as soon as possible..**,**【✭ Nameless Bot Ticket ✭】**`)
+        .setTimestamp();
+        c.send({ embed: embed });
+    }).catch(console.error);
+}
+if (message.content.toLowerCase().startsWith(prefix + `close`)) {
+    if (!message.channel.name.startsWith(`ticket-`)) return message.channel.send(`**You can't use the close command outside of a ticket channel.**`);
+
+    message.channel.send(`**Do you want to close this? 【✭ Nameless Bot Ticket ✭】**, **Type __+confirm__ to close the ticket.**, **__Your request will be voided in 10 seconds.__**`)
+    .then((m) => {
+      message.channel.awaitMessages(response => response.content === '+confirm', {
+        max: 1,
+        time: 10000,
+        errors: ['time'],
+      })
+      .then((collected) => {
+          message.channel.delete();
+        })
+        .catch(() => {
+          m.edit('**Ticket close timed out, the ticket was not closed.**').then(m2 => {
+              m2.delete();
+          }, 3000);
+        });
+    });
+}
+
+});
+
 client.login(process.env.BOT_TOKEN);
