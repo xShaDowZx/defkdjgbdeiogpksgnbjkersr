@@ -1265,7 +1265,7 @@ Nameless Discord Moderator:
 :wrench:-@Ashton#0546 
 :wrench:-@XITZJUSTMARWINZX_#5240 
 :wrench:-@Chuckles#7837 
-:wrench:-@@Cukon#1516 
+:wrench:-@Cukon#1516 
 ════════════
 :red_circle: Nameless Support Discord :tools: ➾ https://discord.gg/atk3A2C
 :pushpin:  Don't forget to vote for Nameless Bot :heartbeat: ➾ https://discordbots.org/bot/465993722342014986/vote
